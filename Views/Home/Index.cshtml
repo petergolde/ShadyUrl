@@ -1,0 +1,25 @@
+﻿@model ShadyUrl.Models.ShortenUrl
+
+@{
+    ViewBag.Title = "Eric's Shady URL Creator";
+}
+
+<div class="jumbotron">
+    <h1>Eric's Shady URL Generator</h1>
+    <p class="lead">Create a shady looking URL that forwards to wherever website you want.</p>
+</div>
+
+<div>
+    @using (Html.BeginForm()) {
+        <p>Enter a URL to make shady: 
+        @Html.TextBox("ForwardTo")
+        <input type="submit" value="Submit">
+        </p>
+    }
+</div>
+
+@if (!string.IsNullOrEmpty(Model.ForwardTo)) { 
+    <div>
+        <p>Your new shady link is: <a href="@Model.ShadyUrl"><strong>@Model.ShadyUrl</strong></a></p>.
+    </div>
+}
